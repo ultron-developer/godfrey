@@ -1,0 +1,3 @@
+RewriteEngine on
+
+RewriteRule ^(index|dayend|dayend2|delivery|lastupdate|dayendconfirmation|pricechange|allreports|chequereport|addcheque|chequedetails)$ screens/$1.php [NC,L]
