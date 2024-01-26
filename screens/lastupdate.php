@@ -65,35 +65,38 @@ $lastReadings = $queryMgr->getLastReadings($currentData["last_update_id"])[0];
         <hr class="my-1">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-4 text-center">
+                <div class="col-lg-4 col-md-4 col-4 text-center p-0">
                     <div class="border rounded m-1">
                         <h5 class="my-2">Gas</h5>
                         <hr class="my-2">
                         <h6><?php echo $currentData["gas_price"] ?> $/L</h6>
                         <div id="fluid-meter-regular"></div>
-                        <h6><?php echo $currentData["gas_L"] ?> L (<?php echo GET_DIP_UNIT_REGULAR_DIESEL($currentData["gas_L"]); ?> Units)</h6>
+                        <h6><?php echo $currentData["gas_L"] ?> L</h6>
+                        <h6>(<?php echo GET_DIP_UNIT_REGULAR_DIESEL($currentData["gas_L"]); ?> Units)</h6>
                         <input type="hidden" id="percentage-1" type="number" value="<?php echo $currentData["gas_L"] / 135; ?>">
                         <button style="display: none;" onclick="set_regular_percentage()" id="submit-percentage-regular">submit</button>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-4 text-center">
+                <div class="col-lg-4 col-md-4 col-4 text-center p-0">
                     <div class="border rounded m-1">
                         <h5 class="my-2">Diesel</h5>
                         <hr class="my-2">
                         <h6><?php echo $currentData["diesel_price"] ?> $/L</h6>
                         <div id="fluid-meter-diesel"></div>
-                        <h6><?php echo $currentData["diesel_L"] ?> L (<?php echo GET_DIP_UNIT_REGULAR_DIESEL($currentData["diesel_L"]); ?> Units)</h6>
+                        <h6><?php echo $currentData["diesel_L"] ?> L</h6>
+                        <h6>(<?php echo GET_DIP_UNIT_REGULAR_DIESEL($currentData["diesel_L"]); ?> Units)</h6>
                         <input type="hidden" id="percentage-2" type="number" value="<?php echo $currentData["diesel_L"] / 135; ?>">
                         <button style="display: none;" onclick="set_diesel_percentage()" id="submit-percentage-diesel">submit</button>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-4 text-center">
+                <div class="col-lg-4 col-md-4 col-4 text-center p-0">
                     <div class="border rounded m-1">
                         <h5 class="my-2">Super</h5>
                         <hr class="my-2">
                         <h6><?php echo $currentData["super_price"] ?> $/L</h6>
                         <div id="fluid-meter-super"></div>
-                        <h6><?php echo $currentData["super_L"] ?> L (<?php echo GET_DIP_UNIT_SUPER($currentData["super_L"]); ?> Units)</h6>
+                        <h6><?php echo $currentData["super_L"] ?> L</h6>
+                        <h6>(<?php echo GET_DIP_UNIT_SUPER($currentData["super_L"]); ?> Units)</h6>
                         <input type="hidden" id="percentage-3" type="number" value="<?php echo $currentData["super_L"] / 45.5; ?>">
                         <button style="display: none;" onclick="set_super_percentage()" id="submit-percentage-super">submit</button>
                     </div>
