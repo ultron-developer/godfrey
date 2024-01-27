@@ -87,14 +87,14 @@ $allcheques = $queryMgr->getAllChequeReports();
                             $megatotal += $allcheques[0][$i]['cheque_amount'];
                     ?>
                             <tr>
-                                <td><a href="chequedetails?chequeid=<?php echo $allcheques[0][$i]['id']; ?>" style="color:red;">Remove</a></td>
-                                <td><?php echo $allcheques[0][$i]['cheque_number']; ?></td>
-                                <td><?php echo date("M jS, Y", strtotime($allcheques[0][$i]['cheque_date'])); ?></td>
-                                <td><?php echo "$ " . $allcheques[0][$i]['cheque_amount']; ?></td>
-                                <td><?php echo $allcheques[0][$i]['cheque_given_to']; ?></td>
-                                <td><?php echo $allcheques[0][$i]['cheque_given_by'] . " on " . date("M jS, Y", strtotime($allcheques[0][$i]['cheque_given_date'])); ?></td>
-                                <td><?php echo $allcheques[0][$i]['note']; ?></td>
-                                <td><?php echo $allcheques[0][$i]['cheque_status']; ?></td>
+                                <td class="white"><a href="chequedetails?chequeid=<?php echo $allcheques[0][$i]['id']; ?>" style="color:red;">Remove</a></td>
+                                <td class="white"><?php echo $allcheques[0][$i]['cheque_number']; ?></td>
+                                <td class="white"><?php echo date("M jS, Y", strtotime($allcheques[0][$i]['cheque_date'])); ?></td>
+                                <td class="white"><?php echo "$ " . $allcheques[0][$i]['cheque_amount']; ?></td>
+                                <td class="white"><?php echo $allcheques[0][$i]['cheque_given_to']; ?></td>
+                                <td class="white"><?php echo $allcheques[0][$i]['cheque_given_by'] . " on " . date("M jS, Y", strtotime($allcheques[0][$i]['cheque_given_date'])); ?></td>
+                                <td class="white"><?php echo $allcheques[0][$i]['note']; ?></td>
+                                <td class="white"><?php echo $allcheques[0][$i]['cheque_status']; ?></td>
                             </tr>
                     <?php
                         }

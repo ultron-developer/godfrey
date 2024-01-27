@@ -184,4 +184,30 @@ class querymanager extends DBManager
             "variance" => floatval($readings["variance"])
         ));
     }
+
+    //SELECT SUM(total), CONCAT(YEAR(date), '-', MONTH(date)) by_month FROM daily_fuel_report GROUP BY by_month ORDER BY MONTH(date) DESC;
+
+    public function fetchDataByYearWise()
+    {
+        $query = $this->db->prepare("SELECT YEAR(date) as date, SUM(total) as total, SUM(gas_$) as gas_$, SUM(diesel_$) as diesel_$, SUM(super_$) as super_$, SUM(gas_L) as gas_L, SUM(diesel_L) as diesel_L, SUM(super_L) as super_L  FROM daily_fuel_report GROUP BY YEAR(date);");
+        $query->execute();
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        return array($results);
+    }
+
+    public function fetchDataByMonthYear($month, $year)
+    {
+        $query = $this->db->prepare("SELECT * FROM daily_fuel_report WHERE YEAR(date) = $year and MONTH(date) = $month;");
+        $query->execute();
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        return array($results);
+    }
+
+    public function fetchDataByMonthWise($year)
+    {
+        $query = $this->db->prepare("SELECT CONCAT(YEAR(date), '-', MONTH(date)) as date, SUM(total) as total, SUM(gas_$) as gas_$, SUM(diesel_$) as diesel_$, SUM(super_$) as super_$, SUM(gas_L) as gas_L, SUM(diesel_L) as diesel_L, SUM(super_L) as super_L  FROM daily_fuel_report WHERE YEAR(date) = $year GROUP BY MONTH(date);");
+        $query->execute();
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        return array($results);
+    }
 }

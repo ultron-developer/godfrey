@@ -21,7 +21,7 @@ h5,
 h6,
 text,
 p,
-td {
+td.white {
   color: white !important;
 }
 
